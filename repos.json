@@ -1,5 +1,10 @@
 {
   "repos": [
-    "https://github.com/R1y3n/repo-sync-target-1795811349"
+    {
+      "url": "https://github.com/R1y3n/repo-sync-target-1795811349",
+      "last_sha": "1d428681da690e36c1f2dde528a8ce3e4c3960f1",
+      "default_branch": "main",
+      "last_checked_at": "2026-11-27T20:30:03.296034+00:00"
+    }
   ]
 }
