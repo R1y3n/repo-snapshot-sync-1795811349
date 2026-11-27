@@ -124,17 +124,23 @@ def normalize_repo(entry: Any) -> dict[str, Any]:
     }
 
 
-def parse_github_repo(url: str) -> tuple[str, str]:
-    # Accept https://github.com/owner/repo, .git, trailing slash, git@github.com:owner/repo.git
+def parse_github_repo(url: str) -> tuple[str, str, str | None]:
+    """Return (owner, repo, optional_branch_hint).
+
+    Accepts common GitHub URL forms, including /tree/<branch> URLs that users
+    sometimes copy from the browser. Branch hints are only used when state has
+    no known default branch yet.
+    """
     m = re.match(r"^git@github\.com:([^/]+)/([^/]+?)(?:\.git)?/?$", url)
-    if not m:
-        m = re.match(r"^https?://github\.com/([^/]+)/([^/]+?)(?:\.git)?/?$", url)
+    if m:
+        return m.group(1), m.group(2), None
+    m = re.match(r"^https?://github\.com/([^/]+)/([^/]+?)(?:\.git)?(?:/(?:tree|blob)/([^/?#]+).*)?/?$", url)
     if not m:
         raise SyncError(f"Unsupported GitHub URL: {url}")
-    owner, repo = m.group(1), m.group(2)
+    owner, repo, branch_hint = m.group(1), m.group(2), m.group(3)
     if not owner or not repo:
         raise SyncError(f"Could not parse owner/repo from {url}")
-    return owner, repo
+    return owner, repo, branch_hint
 
 
 def repo_api(owner: str, repo: str) -> dict[str, Any]:
@@ -279,11 +285,14 @@ def main() -> int:
         url = entry["url"]
         prefix = f"[{i+1}/{len(entries)}] {url}"
         try:
-            owner, repo = parse_github_repo(url)
+            owner, repo, branch_hint = parse_github_repo(url)
             meta = repo_api(owner, repo)
             default_branch = meta.get("default_branch")
             if not isinstance(default_branch, str) or not default_branch:
                 raise SyncError("Could not determine default branch")
+            # If user gave a /tree/<branch> URL and we have no prior state, prefer it.
+            if branch_hint and not entry.get("default_branch"):
+                default_branch = branch_hint
             sha = branch_sha(owner, repo, default_branch)
             old_sha = entry.get("last_sha")
             old_branch = entry.get("default_branch")

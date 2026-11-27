@@ -1,17 +1,69 @@
 {
   "repos": [
-    "https://github.com/DoubleGhosty/cool_fox",
-    "https://github.com/LooperSalty/AnyXboxX",
-    "https://github.com/stellarr-studio/kelvaroq",
-    "https://github.com/fxceless/victory-fork",
-    "https://github.com/trustno1-coder/VIctory-NVIDIA",
-    "https://github.com/DexNom/VIctory",
-    "https://github.com/myokex/victory-amd/tree/vi-fx3",
-    "https://github.com/rorodev6/victory",
-    "https://github.com/Marvisak/VIctory",
-    "https://github.com/soldsawn/victory-nvidia-8gb",
-    "https://github.com/xcl-dev/xcl",
-    "https://github.com/R0Y00/Xbox2Windows",
-    "https://github.com/luizwidmer/palmetto"
+    {
+      "url": "https://github.com/DoubleGhosty/cool_fox",
+      "last_sha": null,
+      "default_branch": null
+    },
+    {
+      "url": "https://github.com/LooperSalty/AnyXboxX",
+      "last_sha": null,
+      "default_branch": null
+    },
+    {
+      "url": "https://github.com/stellarr-studio/kelvaroq",
+      "last_sha": null,
+      "default_branch": null
+    },
+    {
+      "url": "https://github.com/fxceless/victory-fork",
+      "last_sha": null,
+      "default_branch": null
+    },
+    {
+      "url": "https://github.com/trustno1-coder/VIctory-NVIDIA",
+      "last_sha": null,
+      "default_branch": null
+    },
+    {
+      "url": "https://github.com/DexNom/VIctory",
+      "last_sha": null,
+      "default_branch": null
+    },
+    {
+      "url": "https://github.com/myokex/victory-amd/tree/vi-fx3",
+      "last_sha": null,
+      "default_branch": null
+    },
+    {
+      "url": "https://github.com/rorodev6/victory",
+      "last_sha": null,
+      "default_branch": null
+    },
+    {
+      "url": "https://github.com/Marvisak/VIctory",
+      "last_sha": null,
+      "default_branch": null
+    },
+    {
+      "url": "https://github.com/soldsawn/victory-nvidia-8gb",
+      "last_sha": null,
+      "default_branch": null
+    },
+    {
+      "url": "https://github.com/xcl-dev/xcl",
+      "last_sha": null,
+      "default_branch": null
+    },
+    {
+      "url": "https://github.com/R0Y00/Xbox2Windows",
+      "last_sha": null,
+      "default_branch": null
+    },
+    {
+      "url": "https://github.com/luizwidmer/palmetto",
+      "last_sha": null,
+      "default_branch": null
+    }
   ]
 }

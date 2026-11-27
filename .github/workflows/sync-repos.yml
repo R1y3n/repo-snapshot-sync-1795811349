@@ -1,8 +1,14 @@
 name: Sync repo snapshots
 
 on:
+  push:
+    branches: [main]
+    paths:
+      - "repos.json"
+      - "scripts/**"
+      - ".github/workflows/sync-repos.yml"
   schedule:
-    - cron: "17 */6 * * *"
+    - cron: "17 */6 * * *" # every 6 hours, UTC
   workflow_dispatch:
     inputs:
       force_all:
