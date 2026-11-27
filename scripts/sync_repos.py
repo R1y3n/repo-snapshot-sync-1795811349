@@ -83,7 +83,7 @@ def http_download(url: str, dest: pathlib.Path, token: str | None = None) -> Non
     req.add_header("User-Agent", "repo-zip-sync")
     if token:
         req.add_header("Authorization", f"Bearer {token}")
-    dest.parent.mkdir(parents=True, exist=True)
+    dest.parent.mkdir(parents=True, exist_ok=True)
     tmp = dest.with_suffix(dest.suffix + ".part")
     try:
         with urllib.request.urlopen(req, timeout=300) as resp, tmp.open("wb") as f:
@@ -172,7 +172,7 @@ def download_zipball(owner: str, repo: str, branch: str, sha: str, out_dir: path
 
 
 def build_tar_xz(files: list[pathlib.Path], out_path: pathlib.Path) -> None:
-    out_path.parent.mkdir(parents=True, exist=True)
+    out_path.parent.mkdir(parents=True, exist_ok=True)
     tmp = out_path.with_suffix(".tar.xz.tmp")
     if tmp.exists():
         tmp.unlink()
@@ -264,8 +264,8 @@ def main() -> int:
         shutil.rmtree(WORK_DIR)
     if DIST_DIR.exists():
         shutil.rmtree(DIST_DIR)
-    WORK_DIR.mkdir(parents=True)
-    DIST_DIR.mkdir(parents=True)
+    WORK_DIR.mkdir(parents=True, exist_ok=True)
+    DIST_DIR.mkdir(parents=True, exist_ok=True)
 
     token = gh_token()
     if not token:
