@@ -1,0 +1,9 @@
+# Runtime artifacts
+/dist/
+/tmp/
+/.work/
+/*.tar.xz
+/*.zip
+__pycache__/
+*.pyc
+.DS_Store

@@ -1,0 +1,82 @@
+name: Sync repo snapshots
+
+on:
+  schedule:
+    - cron: "17 */6 * * *"
+  workflow_dispatch:
+    inputs:
+      force_all:
+        description: "Repackage all repos even if unchanged"
+        type: boolean
+        default: false
+      dry_run:
+        description: "Check only; do not download, package, release, or commit state"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sync-repo-snapshots
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Sync repositories
+        id: sync
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          args=()
+          if [ "${{ inputs.force_all }}" = "true" ]; then args+=(--force-all); fi
+          if [ "${{ inputs.dry_run }}" = "true" ]; then args+=(--dry-run); fi
+          python3 scripts/sync_repos.py "${args[@]}"
+
+      - name: Publish release
+        if: steps.sync.outputs.changed == 'true' && inputs.dry_run != true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          gh release create "${{ steps.sync.outputs.version }}" \
+            "${{ steps.sync.outputs.asset_path }}" \
+            --title "Repo snapshots ${{ steps.sync.outputs.version }} (${{ steps.sync.outputs.stamp }})" \
+            --notes-file "${{ steps.sync.outputs.release_notes_path }}"
+
+      - name: Commit updated state
+        if: steps.sync.outputs.changed == 'true' && inputs.dry_run != true
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add repos.json
+          if git diff --cached --quiet; then
+            echo "No state changes to commit"
+            exit 0
+          fi
+          git commit -m "chore: update repo snapshot state for ${{ steps.sync.outputs.version }}"
+          git push
+
+      - name: Upload local artifact (debug)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: sync-debug
+          path: |
+            dist/release-notes.md
+            repos.json
+          if-no-files-found: ignore
