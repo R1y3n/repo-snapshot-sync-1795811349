@@ -5,7 +5,7 @@ A GitHub Actions-based system that monitors a user-managed list of public GitHub
 ## How it works
 
 1. **You edit `repos.json`** and add repository URLs.
-2. A scheduled GitHub Actions workflow runs periodically (and can be run manually).
+2. A scheduled GitHub Actions workflow runs periodically (every 15 minutes, UTC) and can be run manually.
 3. For each repo, the workflow checks the latest commit SHA on the repository's default branch (`main`, `master`, etc.) using the GitHub API.
 4. It compares that SHA to `last_sha` stored in `repos.json`.
 5. If one or more repos changed, it downloads only the changed repos as GitHub zipball archives, packs them into one `repo-snapshots-vN.0-YYYYMMDD-HHMMSS.tar.xz` using `tar | xz -9e`, and publishes a GitHub Release with that asset.
@@ -17,7 +17,7 @@ If nothing changed, no release is created.
 
 - `repos.json` - user-managed repo list + system-managed state.
 - `scripts/sync_repos.py` - sync/check/download/package logic.
-- `.github/workflows/sync-repos.yml` - scheduled/manual workflow.
+- `.github/workflows/sync-repos.yml` - scheduled/manual workflow (cron + push + manual).
 
 ## `repos.json` format
 
