@@ -7,9 +7,9 @@
     },
     {
       "url": "https://github.com/LooperSalty/AnyXboxX",
-      "last_sha": "132da61504cc2c2d086796c468a8ace1759aba22",
+      "last_sha": "66b92fbe48c82ecbb334eba19c872f0c538ff1fb",
       "default_branch": "main",
-      "last_checked_at": "2026-11-28T03:00:25.651486+00:00"
+      "last_checked_at": "2026-11-28T11:38:30.957459+00:00"
     },
     {
       "url": "https://github.com/stellarr-studio/kelvaroq",
@@ -18,15 +18,15 @@
     },
     {
       "url": "https://github.com/fxceless/victory-fork",
-      "last_sha": "2f3f39931ae6c40d3ba7d23a804d0c5710318587",
+      "last_sha": "6b3ce6ce54288df514585caa6880f91468c8bc54",
       "default_branch": "main",
-      "last_checked_at": "2026-11-28T03:00:25.651486+00:00"
+      "last_checked_at": "2026-11-28T11:38:30.957459+00:00"
     },
     {
       "url": "https://github.com/trustno1-coder/VIctory-NVIDIA",
-      "last_sha": "8fc22547c81a0ae6e2e9d0669f776854016fb8a1",
+      "last_sha": "63b902fe1720a5188ee79d94a88c8de0470f6349",
       "default_branch": "main",
-      "last_checked_at": "2026-11-28T03:00:25.651486+00:00"
+      "last_checked_at": "2026-11-28T11:38:30.957459+00:00"
     },
     {
       "url": "https://github.com/DexNom/VIctory",
@@ -55,21 +55,21 @@
     },
     {
       "url": "https://github.com/xcl-dev/xcl",
-      "last_sha": "753e8b1a2568c37248133880328f5fe1d5220193",
+      "last_sha": "e429936c10a5b8aa09470ff99dfc8c8d3d8c56fd",
       "default_branch": "main",
-      "last_checked_at": "2026-11-28T03:00:25.651486+00:00"
+      "last_checked_at": "2026-11-28T11:38:30.957459+00:00"
     },
     {
       "url": "https://github.com/R0Y00/Xbox2Windows",
-      "last_sha": "c827d8baad6c950fac15a1314842e352358d9c6a",
+      "last_sha": "24fcd0b5742abb2fcaba8066093d70829df956a3",
       "default_branch": "main",
-      "last_checked_at": "2026-11-28T03:00:25.651486+00:00"
+      "last_checked_at": "2026-11-28T11:38:30.957459+00:00"
     },
     {
       "url": "https://github.com/luizwidmer/palmetto",
-      "last_sha": "2785e429edd44dcc01e64f8d3541910eaa935228",
+      "last_sha": "e4adca9e65a7623d4c19e3646e25ab493405e3bf",
       "default_branch": "main",
-      "last_checked_at": "2026-11-28T03:00:25.651486+00:00"
+      "last_checked_at": "2026-11-28T11:38:30.957459+00:00"
     }
   ]
 }
