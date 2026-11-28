@@ -7,8 +7,9 @@
     },
     {
       "url": "https://github.com/LooperSalty/AnyXboxX",
-      "last_sha": "bebcfb104aebbcb081a2b2f2233d5c3c009a4250",
-      "default_branch": "main"
+      "last_sha": "132da61504cc2c2d086796c468a8ace1759aba22",
+      "default_branch": "main",
+      "last_checked_at": "2026-11-28T03:00:25.651486+00:00"
     },
     {
       "url": "https://github.com/stellarr-studio/kelvaroq",
@@ -17,14 +18,15 @@
     },
     {
       "url": "https://github.com/fxceless/victory-fork",
-      "last_sha": "2eade68cade9b2f8cd2511cc97328e83f58508c3",
-      "default_branch": "main"
+      "last_sha": "2f3f39931ae6c40d3ba7d23a804d0c5710318587",
+      "default_branch": "main",
+      "last_checked_at": "2026-11-28T03:00:25.651486+00:00"
     },
     {
       "url": "https://github.com/trustno1-coder/VIctory-NVIDIA",
-      "last_sha": "0f0ada19095979e2192d1b5a98bb5297cf4d53ea",
+      "last_sha": "8fc22547c81a0ae6e2e9d0669f776854016fb8a1",
       "default_branch": "main",
-      "last_checked_at": "2026-11-27T20:55:16.933822+00:00"
+      "last_checked_at": "2026-11-28T03:00:25.651486+00:00"
     },
     {
       "url": "https://github.com/DexNom/VIctory",
@@ -53,18 +55,21 @@
     },
     {
       "url": "https://github.com/xcl-dev/xcl",
-      "last_sha": "6089122a1c96dff16e93b6fdf04c8ed20cfb6102",
-      "default_branch": "main"
+      "last_sha": "753e8b1a2568c37248133880328f5fe1d5220193",
+      "default_branch": "main",
+      "last_checked_at": "2026-11-28T03:00:25.651486+00:00"
     },
     {
       "url": "https://github.com/R0Y00/Xbox2Windows",
-      "last_sha": "9e7eab5b51dcd1a4e73c522de9e082a74db7b3e3",
-      "default_branch": "main"
+      "last_sha": "c827d8baad6c950fac15a1314842e352358d9c6a",
+      "default_branch": "main",
+      "last_checked_at": "2026-11-28T03:00:25.651486+00:00"
     },
     {
       "url": "https://github.com/luizwidmer/palmetto",
-      "last_sha": "51dd01de88b2a0d6a5c6a1d39b341cbfa1352681",
-      "default_branch": "main"
+      "last_sha": "2785e429edd44dcc01e64f8d3541910eaa935228",
+      "default_branch": "main",
+      "last_checked_at": "2026-11-28T03:00:25.651486+00:00"
     }
   ]
 }
